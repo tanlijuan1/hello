@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { products } from '../products';
-import {CartServiceService } from '../service/cart-service.service'
+import { CartService } from '../service/cart.service'
 
 @Component({
   selector: 'app-product-details',
@@ -16,6 +16,7 @@ export class ProductDetailsComponent implements OnInit {
   // 它包含关于该路由，路由参数以及与该路由关联的其它数据的信息。
   constructor(
     private route: ActivatedRoute,
+    private cartService: CartService,
   ) { }
 
   // 订阅（subscribe）路由参数并根据其 productId 获取商品信息。
@@ -27,5 +28,6 @@ export class ProductDetailsComponent implements OnInit {
 
   addToCart(product) {
     window.alert(product.name+' has been added to the cart!');
+    this.cartService.addToCart(product);
   }
 }

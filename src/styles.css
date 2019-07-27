@@ -81,6 +81,7 @@ label {
   background-color: #1976d2;
   color: white;
   border: none;
+  margin: 5px;
 }
 
 .button:hover, button:hover {
